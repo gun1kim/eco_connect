@@ -1,0 +1,15 @@
+# 빌드 단계
+# Node.js 공식 이미지를 베이스로 설정합니다.
+FROM node:17 AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# 실행 단계
+# Nginx 공식 이미지를 베이스로 설정합니다.
+FROM nginx:stable-alpine AS runtime
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

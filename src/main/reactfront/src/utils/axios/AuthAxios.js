@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const AuthAxios = axios.create({
     withCredentials: true,
-    baseURL: 'http://localhost:8080',
+    baseURL: 'http://43.201.183.231:8080',
 });
 
 AuthAxios.interceptors.request.use((config) => {
@@ -30,7 +30,7 @@ AuthAxios.interceptors.response.use((response) => {
         // if (error.response.status === 401 && !originalRequest._retry) {
         if (!originalRequest._retry) {
             originalRequest._retry = true;
-            return axios.post(`http://localhost:8080/api/member/reissue`, {accessToken : localStorage.getItem("accessToken")}, {headers: {'Authorization': `Bearer ${localStorage.getItem("accessToken")}`}})
+            return axios.post(`http://43.201.183.231:8080/api/member/reissue`, {accessToken : localStorage.getItem("accessToken")}, {headers: {'Authorization': `Bearer ${localStorage.getItem("accessToken")}`}})
                         .then(res => {
                             if (res.status === 200) {
                                 const access_token = res.data.accessToken;
