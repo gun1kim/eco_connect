@@ -46,13 +46,13 @@ jobs:
       - name: Docker Image Build and Push (React app)
         run: |
           cd src/main/reactfront
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/reactfront .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/reactfront -f Dockerfile-react .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/reactfront
 
       # Docker 이미지 빌드 및 DockerHub Push (Spring Boot 앱)
       - name: Docker Image Build and Push (Spring Boot app)
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/springboot .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/springboot -f Dockerfile-spring .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/springboot
 
       # EC2 인스턴스 접속 및 애플리케이션 실행
