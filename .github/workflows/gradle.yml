@@ -67,7 +67,7 @@ jobs:
           script: |
             sudo docker-compose down
 
-    cd
-    docker-compose up -d
-    sudo service nginx restart
+            cd
+            docker-compose up -d
+            sudo service nginx restart
 
