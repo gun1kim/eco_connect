@@ -64,7 +64,9 @@ function FindPw() {
 
             const memberInfo = {id, email};
 
-            axios.post(`http://localhost:8080/api/member/find-pw/member`, memberInfo, {withCredentials: true})
+            // axios.post(`http://localhost:8080/api/member/find-pw/member`, memberInfo, {withCredentials: true})
+            axios.post(`http://43.201.183.231:8080/api/member/find-pw/member`, memberInfo, {withCredentials: true})
+
                 .then(function (res) {
                     console.log("postData : " + JSON.stringify(res.data));
                     setIsReadOnly(true);
@@ -87,7 +89,8 @@ function FindPw() {
             && !isPasswordMismatch && !isPasswordInvalid) {
             const memberInfo = {id, password, email};
 
-            axios.post(`http://localhost:8080/api/member/find-pw/change-pw`, memberInfo, {withCredentials: true})
+            // axios.post(`http://localhost:8080/api/member/find-pw/change-pw`, memberInfo, {withCredentials: true})
+            axios.post(`http://43.201.183.231:8080/api/member/find-pw/change-pw`, memberInfo, {withCredentials: true})
                 .then(function (res) {
                     console.log("postData : " + JSON.stringify(res.data));
                     alert("비밀번호가 변경되었습니다.");

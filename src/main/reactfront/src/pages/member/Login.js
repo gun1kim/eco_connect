@@ -51,7 +51,9 @@ function Login() {
             const loginInfo = {id, password};
             console.log(loginInfo);
 
-            axios.post(`http://localhost:8080/api/member/login`, loginInfo, {withCredentials: true})
+            // axios.post(`http://localhost:8080/api/member/login`, loginInfo, {withCredentials: true})
+            axios.post(`http://43.201.183.231:8080/api/member/login`, loginInfo, {withCredentials: true})
+
                 .then(function (res) {
                     setAccessToken(res.data.accessToken);
                 })

@@ -37,7 +37,8 @@ function Join() {
             setIsIdVerified(false);
         } else {
             setIsIdInvalid(false);
-            axios.post(`http://localhost:8080/api/member/find/id`, {id : inputId})
+            // axios.post(`http://localhost:8080/api/member/find/id`, {id : inputId})
+            axios.post(`http://43.201.183.231:8080/api/member/find/id`, {id : inputId})
                 .then(function (res) {
                     console.log("postId : " + JSON.stringify(res.data));
                     setIsIdDuplicated(res.data);
@@ -92,7 +93,9 @@ function Join() {
             setIsEmailInvalid(true);
         } else {
             setIsEmailInvalid(false);
-            axios.post(`http://localhost:8080/api/member/find/email`, {email : inputEmail})
+            // axios.post(`http://localhost:8080/api/member/find/email`, {email : inputEmail})
+            axios.post(`http://43.201.183.231:8080/api/member/find/email`, {email : inputEmail})
+
                 .then(function (res) {
                     console.log("postId : " + JSON.stringify(res.data));
                     setIsEmailDuplicated(res.data);
@@ -111,7 +114,8 @@ function Join() {
 
             const memberInfo = {id, password, email};
 
-            axios.post(`http://localhost:8080/api/member/join`, memberInfo)
+            // axios.post(`http://localhost:8080/api/member/join`, memberInfo)
+            axios.post(`http://43.201.183.231:8080/api/member/join`, memberInfo)
                 .then(function (res) {
                     console.log("postData : " + JSON.stringify(res.data));
                     alert(`${res.data.id}님의 가입을 축하합니다.`);

@@ -26,7 +26,8 @@ function FindId() {
 
             const memberInfo = {email};
 
-            axios.post(`http://localhost:8080/api/member/find-id`, memberInfo, {withCredentials: true})
+            // axios.post(`http://localhost:8080/api/member/find-id`, memberInfo, {withCredentials: true})
+            axios.post(`http://43.201.183.231:8080/api/member/find-id`, memberInfo, {withCredentials: true})
                 .then(function (res) {
                     console.log("postData : " + JSON.stringify(res.data));
                     setfoundId(res.data.id);
