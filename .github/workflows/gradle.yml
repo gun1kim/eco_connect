@@ -65,7 +65,9 @@ jobs:
 
           script: |
             sudo docker-compose down
-
+            sudo docker ps
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/springboot
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reactfront
             cd
             docker-compose up -d
             sudo service nginx restart
