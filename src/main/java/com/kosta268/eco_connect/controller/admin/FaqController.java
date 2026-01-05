@@ -24,10 +24,10 @@ public class FaqController {
 
   @GetMapping("/faq")
   public List<Faq> listAllFaqs() {
-    return faqService.listAllFaqs();
+    faqService.listAllFaqs();
   }
 
-  @GetMapping("/faq/{faq_id}")
+  @Getmapping("/faq/{faq_id}")
   public ResponseEntity<Faq> getFaqById(@PathVariable Integer faq_id) {
     return faqService.getFaqById(faq_id);
   }
